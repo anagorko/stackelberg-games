@@ -1,0 +1,15 @@
+matplotlib
+numpydoc
+pydata-sphinx-theme
+sphinx>=7.0
+sphinx-autobuild
+sphinx-exec-code
+sphinx-math-dollar
+sphinx-proof
+sphinx-toolbox
+sphinx_autodoc_typehints
+sphinx_copybutton
+sphinx_design
+sphinxcontrib-apidoc
+sphinxcontrib-bibtex
+sphinxcontrib-datatemplates
