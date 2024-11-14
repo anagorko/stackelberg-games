@@ -1,0 +1,20 @@
+.bd-main .bd-content .bd-article-container {
+  max-width: 100%; /* default is 60em */
+}
+
+/* https://stackoverflow.com/questions/68184788/sphinx-toctree-directive-how-to-hide-the-caption-from-being-displayed */
+section span.caption-text {
+  display: none;
+}
+
+html[data-theme="light"] {
+}
+
+html[data-theme="dark"] {
+  --pst-color-on-background: #000000;
+  --pst-color-background: #11111f;
+}
+
+flat {
+  float: right;
+}

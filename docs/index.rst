@@ -57,7 +57,7 @@ Stackelberg Games Repository
         a support for cluster computing.
 
     .. grid-item-card:: Experiment Replication :octicon:`link-external;1em`
-        :link: projects
+        :link: experimenting/experimenting
         :link-type: doc
 
         A collection of archival repositories with source code to replicate experiments as published in our papers.
@@ -72,11 +72,11 @@ Stackelberg Games Repository
         A :doc:`set of notes <whitepaper/whitepaper>` with theoretical background for Bayesian Stackelberg games research.
 
     .. grid-item-card:: Contributing Guidelines :octicon:`link-external;1em`
-        :link: develop/contributing
+        :link: contributing/contributing
         :link-type: doc
 
         Contributions to Benchmark, Core and Whitepaper are welcome.
-        Read :doc:`Contributing Guidelines <develop/contributing>` and submit a pull request.
+        Read :doc:`Contributing Guidelines <contributing/contributing>` and submit a pull request.
 
         Our active research projects are kept private to not disrupt the review process.
 
@@ -110,7 +110,7 @@ about Bayesian Stackelberg games as well as
 archival repositories with code to replicate experiments from our papers.
 
 .. note::
-    See :doc:`experiment/guide` for general instructions (e.g. cluster computing) and individual
+    See :doc:`experimenting/experimenting` for general instructions (e.g. cluster computing) and individual
     :code:`README.md` files for instructions specific to a project.
 
 .. grid:: 1 2 2 2
@@ -183,7 +183,7 @@ is licensed under :doc:`Apache License Version 2.0 <license>`, with the followin
     :maxdepth: 3
     :hidden:
 
-    Experimenting <experiment/index.rst>
+    Experimenting <experimenting/experimenting>
 
 .. toctree::
     :maxdepth: 3
@@ -195,4 +195,4 @@ is licensed under :doc:`Apache License Version 2.0 <license>`, with the followin
     :maxdepth: 3
     :hidden:
 
-    Contributing <contributing/index.rst>
+    Contributing <contributing/contributing>
