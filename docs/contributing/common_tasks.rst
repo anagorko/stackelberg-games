@@ -4,19 +4,13 @@ Common Tasks
 Building docs
 -------------
 
-You cannot publish docs from a private repository to `readthedocs.io`_.
-
-You can build the docs using:
-
-.. code-block:: bash
-
-    python -m nox -s docs
-
-You can see a preview with:
+You cannot publish docs from a private repository to :code:`readthedocs.io`.
+If you are working in a private fork, you can view the documentation locally using
+the following command.
 
 .. code-block:: bash
 
-    python -m nox -s docs -- --serve
+    sphinx-autobuild -n -T -b=html docs/ docs/_build/html/
 
 Jupyter
 -------

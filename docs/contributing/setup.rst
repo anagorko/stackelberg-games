@@ -5,46 +5,34 @@ Setting up a research project
 -----------------------------
 
 We set up new research projects in private repositories to not interfere with blind review.
-As Github does not allow private forks of public repositories, we duplicate :code:`stackelberg-games`
-following `these steps <https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274>`_.
+As Github does not allow private forks of public repositories, we create the copy manually.
 
-1. Create a new private repository on Github, e.g. :code:`sg-tutorial` and set the environment variable
-with the repository URL.
-
-.. code-block:: bash
-
-    CLONE_URL=git@github.com:anagorko/sg-tutorial.git
-
-2. Run the following commands.
+1. Create a new private repository on Github, e.g. :code:`stackelberg-games-twophase`
+and set the environment variable to the repository URL.
 
 .. code-block:: bash
 
-    CLONE_URL_STRIPPED=${CLONE_URL%.*}
-    CLONE_DIR=${CLONE_URL_STRIPPED##*/}
+    CLONE_URL=git@github.com:anagorko/stackelberg-games-twophase.git
 
-    mkdir tmp
-    cd tmp
-    git clone --bare git@github.com:anagorko/stackelberg-games.git
-    cd stackelberg-games.git/
-    git push --mirror $CLONE_URL
+2. Chdir to the :code:`stackelberg-games` repository and run and push its contents to the new
+repository.
+
+.. code-block:: bash
+
+    cd stackelberg-games/
+    git push $CLONE_URL
     cd ..
-    rm -rf stackelberg-games.git/
-    cd ..
-    rmdir tmp
-    git clone $CLONE_URL
-    cd $CLONE_DIR
+
+3. Clone the copy and set upstream to :code:`stackelberg-games`.
+
+.. code-block:: bash
+
+    git clone ${CLONE_URL}
+    PREFIX=${CLONE_URL%.*}
+    cd ${PREFIX##*/}
     git remote add upstream git@github.com:anagorko/stackelberg-games.git
     git remote set-url --push upstream DISABLE
     git remote -v
-
-The output should be
-
-.. code-block:: terminal
-
-    origin	git@github.com:anagorko/sg-tutorial.git (fetch)
-    origin	git@github.com:anagorko/sg-tutorial.git (push)
-    upstream	git@github.com:anagorko/stackelberg-games.git (fetch)
-    upstream	DISABLE (push)
 
 Setting up a development environment
 ------------------------------------
