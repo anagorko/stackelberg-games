@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "stackelberg_games.core"
+authors = [
+    { name="Andrzej Nagórko", email="amn@mimuw.edu.pl" },
+]
+description = "Core algorithms and data structures for research related to Stackelberg games"
+license.file = "LICENSE"
+readme = "README.md"
+dynamic = ["version"]
+requires-python = ">=3.10"
+# https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "pycddlib<3.0.0",
+    "pydantic",
+    "pyscipopt",
+    "tqdm"
+]
+
+[project.optional-dependencies]
+test = [
+    "jinja2",
+    "pytest",
+    "pytest-cov"
+]
+dev = [
+    "jinja2",
+    "pre-commit",
+    "pytest",
+    "pytest-cov"
+]
+
+[project.urls]
+Homepage = "https://github.com/anagorko/monte-carlo-methods"
+
+
+[tool.hatch]
+version.source = "vcs"
+build.hooks.vcs.version-file = "src/stackelberg_games/core/_version.py"
+build.targets.wheel.packages = ["src/stackelberg_games"]
+version.raw-options.write_to = "stackelberg-games-core/src/stackelberg_games/core/_version.py"
+version.raw-options.root = ".."
+
+[tool.pytest.ini_options]
+cache_dir="../.pytest_cache"

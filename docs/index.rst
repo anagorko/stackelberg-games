@@ -177,7 +177,7 @@ is licensed under :doc:`Apache License Version 2.0 <license>`, with the followin
     :maxdepth: 3
     :hidden:
 
-    Core <stackelberg-games-core/index.rst>
+    Core <stackelberg-games-core/index>
 
 .. toctree::
     :maxdepth: 3
@@ -189,7 +189,7 @@ is licensed under :doc:`Apache License Version 2.0 <license>`, with the followin
     :maxdepth: 3
     :hidden:
 
-    Whitepaper <whitepaper/index.rst>
+    Whitepaper <whitepaper/index>
 
 .. toctree::
     :maxdepth: 3

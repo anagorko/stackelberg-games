@@ -1,0 +1,30 @@
+cycler
+cython
+editables	# for stackelberg-games-core/ --no-build-isolation install
+frozendict
+hatch-vcs	# for stackelberg-games-core/ --no-build-isolation install
+hatchling	# for stackelberg-games-core/ --no-build-isolation install
+ipympl
+jinja2
+jupyter
+meson-python
+mypy
+ninja
+nox
+numpy
+pandas-stubs
+pre-commit
+pycairo
+pycddlib<3.0.0
+pydantic
+pyperclip
+pyscipopt
+pytest
+scikit-build-core
+scipy
+setuptools_scm
+sqlalchemy
+termcolor
+types-psutil
+types-tqdm
+wakepy

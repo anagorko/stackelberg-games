@@ -1,0 +1,203 @@
+@article{chollet2019measure,
+  title={On the measure of intelligence},
+  author={Chollet, Fran{\c{c}}ois},
+  journal={arXiv preprint arXiv:1911.01547},
+  year={2019}
+}
+
+@inproceedings{conitzer2006computing,
+author = {Conitzer, Vincent and Sandholm, Tuomas},
+title = {Computing the Optimal Strategy to Commit To},
+year = {2006},
+isbn = {1595932364},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1134707.1134717},
+doi = {10.1145/1134707.1134717},
+abstract = {In multiagent systems, strategic settings are often analyzed under the assumption that the players choose their strategies simultaneously. However, this model is not always realistic. In many settings, one player is able to commit to a strategy before the other player makes a decision. Such models are synonymously referred to as leadership, commitment, or Stackelberg models, and optimal play in such models is often significantly different from optimal play in the model where strategies are selected simultaneously.The recent surge in interest in computing game-theoretic solutions has so far ignored leadership models (with the exception of the interest in mechanism design, where the designer is implicitly in a leadership position). In this paper, we study how to compute optimal strategies to commit to under both commitment to pure strategies and commitment to mixed strategies, in both normal-form and Bayesian games. We give both positive results (efficient algorithms) and negative results (NP-hardness results).},
+booktitle = {Proceedings of the 7th ACM Conference on Electronic Commerce},
+pages = {82–90},
+numpages = {9},
+keywords = {normalform games, bayesian games, nash equilibrium, leadership, game theory, commitment, stackelberg},
+location = {Ann Arbor, Michigan, USA},
+series = {EC '06},
+pdf = {https://users.cs.duke.edu/~conitzer/commitEC06.pdf}
+}
+
+@inproceedings{lisy2016counterfactual,
+  title={Counterfactual regret minimization in sequential security games},
+  author={Lisy, Viliam and Davis, Trevor and Bowling, Michael},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={30},
+  issue={1},
+  year={2016}
+}
+
+@misc{fukuda2016cyclic,
+  author = {Fukuda, Komei},
+  TITLE = {Cyclic Polytope},
+  YEAR = 2016,
+  NOTE = "\url{https://people.inf.ethz.ch/fukudak/lect/pclect/notes2016/expoly_cyclic.pdf}"
+}
+
+@inproceedings{guo2019inducibility,
+  title={On the inducibility of stackelberg equilibrium for security games},
+  author={Guo, Qingyu and Gan, Jiarui and Fang, Fei and Tran-Thanh, Long and Tambe, Milind and An, Bo},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={33},
+  number={01},
+  pages={2020--2028},
+  year={2019}
+}
+
+@InProceedings{nagorko23twophase,
+  title = 	 {Two-phase Attacks in Security Games},
+  author =       {Nagorko, Andrzej and Ciosmak, Pawel and Michalak, Tomasz},
+  booktitle = 	 {Proceedings of the Thirty-Ninth Conference on Uncertainty in Artificial Intelligence},
+  pages = 	 {1489--1498},
+  year = 	 {2023},
+  editor = 	 {Evans, Robin J. and Shpitser, Ilya},
+  volume = 	 {216},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {31 Jul--04 Aug},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v216/nagorko23a/nagorko23a.pdf},
+  url = 	 {https://proceedings.mlr.press/v216/nagorko23a.html},
+  abstract = 	 {A standard model of a security game assumes a one-off assault during which the attacker cannot update their strategy even if new actionable insights are gained in the process. In this paper, we propose a version of a security game that takes into account a possibility of a two-phase attack. Specifically, in the first phase, the attacker makes a preliminary move to gain extra information about this particular instance of the game. Based on this information, the attacker chooses an optimal concluding move. We derive a compact-form mixed-integer linear program that computes an optimal strategy of the defender. Our simulation shows that this strategy mitigates serious losses incurred to the defender by a two-phase attack while still protecting well against less sophisticated attackers.}
+}
+
+@inproceedings{nagorko2023two,
+  title={Two-phase Security Games (extended abstract)},
+  author={Nag{\'o}rko, Andrzej and Ciosmak, Pawel and Michalak, Tomasz},
+  booktitle={Proceedings of the 2023 International Conference on Autonomous Agents and Multiagent Systems},
+  pages={2910--2912},
+  year={2023},
+  pdf = {https://www.ifaamas.org/Proceedings/aamas2023/pdfs/p2910.pdf},
+  url = {https://www.ifaamas.org/Proceedings/aamas2023/pdfs/p2910.pdf},
+}
+
+@inproceedings{nagorko2024general,
+  title={General Markov Model for Solving Patrolling Games},
+  author={Nag{\'o}rko, Andrzej and Godziszewski, Micha{\l} Tomasz and Waniek, Marcin and Rosiak, Barbara and R{\'o}g, Ma{\l}gorzata and Michalak, Tomasz Pawe{\l}},
+  booktitle={The 40th Conference on Uncertainty in Artificial Intelligence},
+  year = {2024},
+  url = {https://openreview.net/pdf?id=GIqMAWbu0P}
+}
+
+@inproceedings{paruchuri2008playing,
+  title={Playing games for security: An efficient exact algorithm for solving Bayesian Stackelberg games},
+  author={Paruchuri, Praveen and Pearce, Jonathan P and Marecki, Janusz and Tambe, Milind and Ordonez, Fernando and Kraus, Sarit},
+  booktitle={Proceedings of the 7th international joint conference on Autonomous agents and multiagent systems-Volume 2},
+  pages={895--902},
+  year={2008},
+  abstract={In a class of games known as Stackelberg games, one agent (the leader) must commit to a strategy that can be observed by the other agent (the follower or adversary) before the adversary chooses its own strategy. We consider Bayesian Stackelberg games, in which the leader is uncertain about the types of adversary it may face. Such games are important in security domains, where, for example, a security agent (leader) must commit to a strategy of patrolling certain areas, and a robber (follower) has a chance to observe this strategy over time before choosing its own strategy of where to attack. This paper presents an efficient exact algorithm for finding the optimal strategy for the leader to commit to in these games. This algorithm, DOBSS, is based on a novel and compact mixed-integer linear programming formulation. Compared to the most efficient algorithm known previously for this problem, DOBSS is not only faster, but also leads to higher quality solutions, and does not suffer from problems of infeasibility that were faced by this previous algorithm. Note that DOBSS is at the heart of the ARMOR system that is currently being tested for security scheduling at the Los Angeles International Airport.},
+  pdf={https://aamas.csc.liv.ac.uk/Proceedings/aamas08/proceedings/pdf/paper/AAMAS08_0057.pdf}
+}
+
+@inproceedings{pita2008deployed,
+  title={Deployed armor protection: the application of a game theoretic model for security at the los angeles international airport},
+  author={Pita, James and Jain, Manish and Marecki, Janusz and Ord{\'o}{\~n}ez, Fernando and Portway, Christopher and Tambe, Milind and Western, Craig and Paruchuri, Praveen and Kraus, Sarit},
+  booktitle={Proceedings of the 7th international joint conference on Autonomous agents and multiagent systems: industrial track},
+  pages={125--132},
+  year={2008},
+  pdf = {https://ifaamas.org/Proceedings/aamas08/proceedings/pdf/industrial_application_track/AAMAS08_IndTrack_33.pdf},
+}
+
+@article{pita2009using,
+  title={Using game theory for Los Angeles airport security},
+  author={Pita, James and Jain, Manish and Ord{\'o}nez, Fernando and Portway, Christopher and Tambe, Milind and Western, Craig and Paruchuri, Praveen and Kraus, Sarit},
+  journal={AI magazine},
+  volume={30},
+  number={1},
+  pages={43--43},
+  year={2009},
+  abstract={Security at major locations of economic or political importance is a key concern around the world, particularly given the threat of terrorism. Limited security resources prevent full security coverage at all times, which allows adversaries to observe and exploit patterns in selective patrolling or monitoring, e.g. they can plan an attack avoiding existing patrols. Hence, randomized patrolling or monitoring is important, but randomization must provide distinct weights to different actions based on their complex costs and benefits. To this end, this paper describes a promising transition of the latest in multi-agent algorithms into a deployed application. In particular, it describes a software assistant agent called ARMOR (Assistant for Randomized Monitoring over Routes) that casts this patrolling/monitoring problem as a Bayesian Stackelberg game, allowing the agent to appropriately weigh the different actions in randomization, as well as uncertainty over adversary types. ARMOR combines two key features: (i) It uses the fastest known solver for Bayesian Stackelberg games called DOBSS, where the dominant mixed strategies enable randomization; (ii) Its mixed-initiative based interface allows users to occasionally adjust or override the automated schedule based on their local constraints. ARMOR has been successfully deployed since August 2007 at the Los Angeles International Airport (LAX) to randomize checkpoints on the roadways entering the airport and canine patrol routes within the airport terminals. This paper examines the information, design choices, challenges, and evaluation that went into designing ARMOR.},
+  pdf={https://ojs.aaai.org/index.php/aimagazine/article/view/2173/2067}
+}
+
+@inproceedings{rosin2011nested,
+  title={Nested rollout policy adaptation for Monte Carlo tree search},
+  author={Rosin, Christopher D},
+  booktitle={Proceedings of the Twenty-Second international joint conference on Artificial Intelligence-Volume Volume One},
+  pages={649--654},
+  year={2011},
+  url = {https://www.ijcai.org/Proceedings/11/Papers/115.pdf},
+}
+
+@inproceedings{ijcai2018p775,
+  title     = {Stackelberg Security Games: Looking Beyond a Decade of Success},
+  author    = {Arunesh Sinha and Fei Fang and Bo An and Christopher Kiekintveld and Milind Tambe},
+  booktitle = {Proceedings of the Twenty-Seventh International Joint Conference on
+               Artificial Intelligence, {IJCAI-18}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  pages     = {5494--5501},
+  year      = {2018},
+  month     = {7},
+  doi       = {10.24963/ijcai.2018/775},
+  url       = {https://doi.org/10.24963/ijcai.2018/775},
+}
+
+@article{narici2011topological,
+  title={Topological vector spaces, volume 296 of},
+  author={Narici, Lawrence and Beckenstein, Edward},
+  journal={Pure and Applied Mathematics (Boca Raton)},
+  year={2011}
+}
+
+@inproceedings{tsai2010urban,
+  title={Urban security: Game-theoretic resource allocation in networked domains},
+  author={Tsai, Jason and Yin, Zhengyu and Kwak, Jun-young and Kempe, David and Kiekintveld, Christopher and Tambe, Milind},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={24},
+  number={1},
+  pages={881--886},
+  year={2010},
+  url = {https://ojs.aaai.org/index.php/AAAI/article/download/7612/7473},
+}
+
+@article{von_stengel_leadership_2004,
+  title = {Leadership with commitment to mixed strategies},
+  publisher = {Centre for Discrete and Applicable Mathematics, London School of Economics},
+  author = {von Stengel, Bernhard and Zamir, Shmuel},
+  journal={CDAM Research Report LSE-CDAM-2004-01},
+  year = {2004},
+  url = {http://www.cdam.lse.ac.uk/Reports/Files/cdam-2004-01.pdf},
+}
+
+
+@article{wei2024derivative,
+  title={Derivative-free tree optimization for complex systems},
+  author={Wei, Ye and Peng, Bo and Xie, Ruiwen and Chen, Yangtao and Qin, Yu and Wen, Peng and Bauer, Stefan and Tung, Po-Yen},
+  journal={arXiv preprint arXiv:2404.04062},
+  year={2024},
+  url={https://arxiv.org/pdf/2404.04062},
+}
+
+@inproceedings{weibel2010implementation,
+  title={Implementation and parallelization of a reverse-search algorithm for Minkowski sums},
+  author={Weibel, Christophe},
+  booktitle={2010 Proceedings of the Twelfth Workshop on Algorithm Engineering and Experiments (ALENEX)},
+  pages={34--42},
+  year={2010},
+  organization={SIAM},
+  url={https://sites.google.com/site/christopheweibel/research/minksum}
+}
+
+@article{weibel2012maximal,
+  title={Maximal f-vectors of Minkowski sums of large numbers of polytopes},
+  author={Weibel, Christophe},
+  journal={Discrete \& Computational Geometry},
+  volume={47},
+  number={3},
+  pages={519--537},
+  year={2012},
+  publisher={Springer}
+}
+
+@book{ziegler2012lectures,
+  title={Lectures on polytopes},
+  author={Ziegler, G{\"u}nter M},
+  volume={152},
+  year={2012},
+  publisher={Springer Science \& Business Media}
+}
