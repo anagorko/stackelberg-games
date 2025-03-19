@@ -105,9 +105,8 @@ Repositories
 ------------
 
 `stackelberg-games <https://github.com/anagorko/stackelberg_games>`_ is a monorepo with general-purpose
-repositories :code:`stackelberg-games-core/` and :code:`stackelberg-games-benchmark/`, a set of notes
-about Bayesian Stackelberg games as well as
-archival repositories with code to replicate experiments from our papers.
+repositories :code:`stackelberg-games-core/` and :code:`stackelberg-games-patrolling/`, a set of notes
+about Bayesian Stackelberg games as well as archival repositories with code to replicate experiments from our papers.
 
 .. note::
     See :doc:`experimenting/experimenting` for general instructions (e.g. cluster computing) and individual
@@ -122,7 +121,7 @@ archival repositories with code to replicate experiments from our papers.
         Documentation
         ^^^
 
-        Source code: `docs/ <https://github.com/anagorko/monte-carlo-methods/tree/main/docs>`_.
+        Source code: `docs/ <https://github.com/anagorko/stackelberg-games/tree/main/docs>`_.
 
         +++
         Contributors: Andrzej Nagórko, Marcin Waniek.
@@ -132,7 +131,7 @@ archival repositories with code to replicate experiments from our papers.
         Whitepaper
         ^^^
 
-        Source code: `docs/whitepaper/ <https://github.com/anagorko/monte-carlo-methods/tree/main/docs/whitepaper>`_.
+        Source code: `docs/whitepaper/ <https://github.com/anagorko/stackelberg-games/tree/main/docs/whitepaper>`_.
 
         +++
         Contributors: Andrzej Nagórko.
@@ -142,7 +141,7 @@ archival repositories with code to replicate experiments from our papers.
         Stackelberg Games Core
         ^^^
 
-        Source code: `stackelberg-games-core/ <https://github.com/anagorko/monte-carlo-methods/tree/main/stackelberg-games-core>`_.
+        Source code: `stackelberg-games-core/ <https://github.com/anagorko/stackelberg-games/tree/main/stackelberg-games-core>`_.
 
         +++
         Contributors: Andrzej Nagórko, Marcin Waniek, Łukasz Gołuchowski.
@@ -152,15 +151,21 @@ archival repositories with code to replicate experiments from our papers.
         Two-phase Games
         ^^^
 
-        Source code: `stackelberg-games-twophase/ <https://github.com/anagorko/monte-carlo-methods/tree/main/stackelberg-games-twophase>`_.
+        Source code: `stackelberg-games-twophase/ <https://github.com/anagorko/stackelberg-games/tree/main/stackelberg-games-twophase>`_.
 
         +++
         Contributors: Andrzej Nagórko, Paweł Ciosmak, Tomasz Michalak
 
     .. grid-item-card::
 
-        Shield algorithm
+        Repository :code:`stackelberg-games.patrolling`
         ^^^
+
+        A repository with source code that accompanies "General markov model for solving patrolling games" paper :cite:p:`nagorko2024general`.
+
+        Source code: `stackelberg-games-patrolling/ <https://github.com/anagorko/stackelberg-games/tree/main/stackelberg-games-patrolling>`_.
+
+        Documentation: :doc:`Patrolling Games<stackelberg-games-patrolling/index>`.
 
         +++
         Contributors: Andrzej Nagórko, Michał Tomasz Godziszewski, Marcin Waniek, Barbara Rosiak, Małgorzata Róg, Tomasz Michalak.
@@ -184,6 +189,7 @@ is licensed under :doc:`Apache License Version 2.0 <license>`, with the followin
     :hidden:
 
     Experimenting <experimenting/experimenting>
+    Patrolling Games <stackelberg-games-patrolling/index>
 
 .. toctree::
     :maxdepth: 3

@@ -1,6 +1,14 @@
 Experimenting
 =============
 
+Experiment replication
+----------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    ../stackelberg-games-patrolling/index
+
 Running common tasks with :code:`nox`
 -------------------------------------
 
