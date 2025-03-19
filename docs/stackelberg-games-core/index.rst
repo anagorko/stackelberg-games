@@ -1,0 +1,2 @@
+Stackelberg Games Core
+======================
