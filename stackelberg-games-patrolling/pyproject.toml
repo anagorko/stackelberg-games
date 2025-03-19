@@ -3,11 +3,12 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "stackelberg_games.core"
+name = "stackelberg_games.patrolling"
 authors = [
     { name="Andrzej Nagórko", email="amn@mimuw.edu.pl" },
+    { name="Marcin Waniek", email="" },
 ]
-description = "Core algorithms and data structures for research related to Stackelberg games"
+description = "Patrolling games"
 license.file = "LICENSE"
 readme = "README.md"
 dynamic = ["version"]
@@ -29,13 +30,26 @@ classifiers = [
 ]
 
 dependencies = [
-    "matplotlib",
-    "numpy",
-    "pycddlib<3.0.0",
+    "autodoc_pydantic",
+    "cartopy",
+    "datamodel-code-generator",
+    "geopy",
+    "haversine",
+    "jsbeautifier",
+    "manim",
+    "netgraph",
+    "networkx",
+    "owslib",
+    "pandas",
     "pydantic",
+    "pylint",
     "pyscipopt",
-    "tqdm"
+    "scipy",
+    "seaborn",
+    "shapely",
+    "termcolor"
 ]
+
 
 [project.optional-dependencies]
 test = [
@@ -56,9 +70,9 @@ Homepage = "https://github.com/anagorko/stackelberg-games"
 
 [tool.hatch]
 version.source = "vcs"
-build.hooks.vcs.version-file = "src/stackelberg_games/core/_version.py"
+build.hooks.vcs.version-file = "src/stackelberg_games/patrolling/_version.py"
 build.targets.wheel.packages = ["src/stackelberg_games"]
-version.raw-options.write_to = "stackelberg-games-core/src/stackelberg_games/core/_version.py"
+version.raw-options.write_to = "stackelberg-games-patrolling/src/stackelberg_games/patrolling/_version.py"
 version.raw-options.root = ".."
 
 [tool.pytest.ini_options]

@@ -1,4 +1,0 @@
-ipympl
-jupyter
-nox
-pre-commit
