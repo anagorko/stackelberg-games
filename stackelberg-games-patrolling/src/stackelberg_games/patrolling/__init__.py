@@ -1,6 +1,6 @@
 from .bisect_solver import BisectSolver
 from .problem import PatrollingProblem, patrolling_problem
-from .setting import PatrollingEnvironment, basilico_et_al, graph_environment, john_et_al, port_gdynia
+from .setting import PatrollingEnvironment, basilico_et_al, gdynia_graph, graph_environment, john_et_al, port_gdynia
 from .space import ConcreteSpace, PathSpace, PatrollingSpace, TensorProductSpace, WeightedGraphSpace
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
     "TensorProductSpace",
     "WeightedGraphSpace",
     "basilico_et_al",
+    "gdynia_graph",
     "graph_environment",
     "john_et_al",
     "patrolling_problem",
