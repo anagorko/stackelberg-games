@@ -47,7 +47,8 @@ dependencies = [
     "scipy",
     "seaborn",
     "shapely",
-    "termcolor"
+    "termcolor",
+    "types-networkx"
 ]
 
 
