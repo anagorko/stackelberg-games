@@ -18,3 +18,11 @@ html[data-theme="dark"] {
 flat {
   float: right;
 }
+
+.descname {
+  color: #0dcaf0;
+}
+
+dl.py.attribute {
+  margin-bottom: 0 !important;
+}

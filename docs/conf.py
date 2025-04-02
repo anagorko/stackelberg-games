@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import importlib.metadata
+import os
 import sys
 from pathlib import Path
 
-sys.path.insert(0, Path("../src").resolve().name)
-sys.path.append(str(Path(".").resolve()))
+import griffe
+from griffe.docstrings import dataclasses as ds
+from griffe.docstrings import parsers, styles
+from griffe.extensions import sphinx as griffe_sphinx
 
+sys.path.insert(0, os.path.abspath("../stackelberg-games-patrolling/src"))
+sys.path.insert(0, os.path.abspath("../stackelberg-games-core/src"))
+sys.path.append(str(Path(".").resolve()))
 
 project = "stackelberg-games"
 copyright = "2024, Andrzej Nagórko"
@@ -15,8 +21,6 @@ author = "Andrzej Nagórko"
 version = release = "0.1"
 
 extensions = [
-    "sphinx_toolbox.more_autodoc.typevars",
-    "sphinx.ext.autodoc",
     "sphinx.ext.duration",
     "sphinx.ext.autosummary",
     "sphinx.ext.coverage",
@@ -29,7 +33,6 @@ extensions = [
     "sphinx_design",
     "sphinx.ext.viewcode",
     "numpydoc",
-    #    "sphinxcontrib.apidoc",
     "sphinx_exec_code",
     "sphinxcontrib.bibtex",
     "sphinx.ext.mathjax",
@@ -39,6 +42,7 @@ extensions = [
     "matplotlib.sphinxext.plot_directive",
     "sphinxcontrib.datatemplates",
     "sphinx_toolbox.wikipedia",
+    # "autoapi.extension"
 ]
 
 templates_path = ["_templates"]
@@ -94,14 +98,18 @@ napoleon_use_ivar = False
 napoleon_use_param = True
 napoleon_use_rtype = True
 
-# apidoc_module_dir = "../src/bsgmc"
-# apidoc_output_dir = "api"
-# apidoc_excluded_paths = ["tests"]
-# apidoc_separate_modules = True
+# autoapi
 
-autodoc_member_order = "bysource"
-autodoc_preserve_defaults = True
-autodoc_typehints = "description"
+#autoapi_type = 'python'
+#autoapi_dirs = ['../stackelberg-games-core/src/stackelberg_games/core/',
+#                '../stackelberg-games-patrolling/src/stackelberg_games/patrolling/']
+#autoapi_options = ['members', 'undoc-members', 'show-module-summary', 'special-members']
+# autoapi_python_use_implicit_namespaces=True
+#autoapi_root = 'stackelberg_games'
+
+# griffe
+
+#
 
 copybutton_exclude = ".linenos, .gp, .go"
 

@@ -1,7 +1,9 @@
+griffe
 matplotlib
 numpydoc
 pydata-sphinx-theme
 sphinx>=7.0
+sphinx-autoapi
 sphinx-autobuild
 sphinx-exec-code
 sphinx-math-dollar
