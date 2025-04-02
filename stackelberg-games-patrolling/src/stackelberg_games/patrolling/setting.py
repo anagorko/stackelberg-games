@@ -137,7 +137,7 @@ def graph_environment(graph: nx.DiGraph, units: int = 1) -> PatrollingEnvironmen
 
 def gdynia_graph(edge_len_unit: int = 1000) -> nx.DiGraph[str]:
     """
-    The running example topology from the UAI'24 paper.
+    The running example topology from the UAI-24 paper.
     """
 
     g: nx.Graph[str] = nx.Graph()
@@ -205,7 +205,7 @@ def gdynia_graph(edge_len_unit: int = 1000) -> nx.DiGraph[str]:
 
 def port_gdynia(number_of_units: int = 1) -> PatrollingEnvironment:
     """
-    The running example setting from the UAI'24 paper.
+    The running example setting from the UAI-24 paper.
     """
     layout = gdynia_graph()
 
