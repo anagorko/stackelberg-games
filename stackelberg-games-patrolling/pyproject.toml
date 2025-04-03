@@ -15,7 +15,7 @@ dynamic = ["version"]
 requires-python = ">=3.10"
 # https://pypi.org/classifiers/
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Operating System :: OS Independent",
     "Environment :: Console",
     "Intended Audience :: Science/Research",
@@ -25,12 +25,14 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Typing :: Typed",
 ]
 
 dependencies = [
-    "autodoc_pydantic",
+    "appdirs",
     "cartopy",
     "datamodel-code-generator",
     "geopy",
@@ -42,7 +44,6 @@ dependencies = [
     "owslib",
     "pandas",
     "pydantic",
-    "pylint",
     "pyscipopt",
     "scipy",
     "seaborn",
@@ -61,6 +62,7 @@ test = [
 dev = [
     "jinja2",
     "pre-commit",
+    "pylint",
     "pytest",
     "pytest-cov"
 ]

@@ -18,6 +18,8 @@ from urllib.request import urlopen, Request
 from PIL import Image
 from tqdm import tqdm
 
+import directories
+
 
 class MapTileService:
     """
@@ -82,7 +84,7 @@ class MapTileService:
         self.service = service
         self.cache = {}
         self._tile_size = {}
-        self.disk_cache_dir = Path('assets/tile_cache/')
+        self.disk_cache_dir = Path(directories.tile_cache_dir)
         self.disk_cache_dir.mkdir(parents=True, exist_ok=True)
 
     def _tile_url(self, x, y, z):

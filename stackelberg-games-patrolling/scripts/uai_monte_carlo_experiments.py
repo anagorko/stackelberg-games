@@ -17,6 +17,7 @@ from fractions import Fraction
 
 import stackelberg_games.patrolling as sgp
 
+
 def run_series():
     """Set up and run computations."""
     
@@ -25,7 +26,7 @@ def run_series():
     rollouts_num = 10**3
     reps = 1
     
-    out_dir_path = 'output/sf_results/'
+    out_dir_path = f"{sgp.directories.results_dir}/sf_results/"
     os.makedirs(out_dir_path, exist_ok=True)
 
     with open(f'{out_dir_path}res_{round(datetime.datetime.timestamp(datetime.datetime.now()))}.csv', 'w', encoding='utf-8', newline='') as outputFile:
@@ -58,8 +59,10 @@ def run_series():
             mc_minusone = solution.monte_carlo_expected_reward(data.observation_length - 1, rollout_len=rollout_len, rollouts_num=rollouts_num, disable_tqdm = True)
             output_row([n, 'mc_minusone', mc_minusone])
 
+
 def main():
     run_series()
+
 
 if __name__ == '__main__':
     main()

@@ -24,7 +24,7 @@ def run_series(graph_name: str, graph_generator: Callable[[],networkx.DiGraph]):
     rollout_len = 10**3
     rollouts_num = 10**3
     
-    out_dir_path = 'output/random_results/'
+    out_dir_path = f"{sgp.directories.results_dir}/random_results/"
     os.makedirs(out_dir_path, exist_ok=True)
     with open(f'{out_dir_path}{graph_name}_{round(datetime.datetime.timestamp(datetime.datetime.now()))}.csv', 'w', encoding='utf-8', newline='') as outputFile:
         out = csv.writer(outputFile, delimiter=';')

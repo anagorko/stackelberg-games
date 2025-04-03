@@ -1,4 +1,5 @@
 from .bisect_solver import BisectSolver
+import directories
 from .problem import PatrollingProblem, patrolling_problem
 from .pwl import PWLMap
 from .setting import PatrollingEnvironment, basilico_et_al, gdynia_graph, graph_environment, john_et_al, port_gdynia
