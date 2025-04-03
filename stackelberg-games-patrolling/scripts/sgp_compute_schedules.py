@@ -12,6 +12,7 @@ def solve_and_save_defense_plan(elu: int, units: int, obs: int, at: int):
 
     if os.path.exists(output_name):
         print(f"{output_name} already exists, skipping.")
+        return
 
     gp = sgp.gdynia_problem(edge_len_unit=elu, number_of_units=units, observation_length=obs, att_time=at)
     solver = sgp.BisectSolver()
