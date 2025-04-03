@@ -74,9 +74,14 @@ Homepage = "https://github.com/anagorko/stackelberg-games"
 [tool.hatch]
 version.source = "vcs"
 build.hooks.vcs.version-file = "src/stackelberg_games/patrolling/_version.py"
-build.targets.wheel.packages = ["src/stackelberg_games"]
+build.targets.wheel.packages = ["src/stackelberg_games", "scripts"]
 version.raw-options.write_to = "stackelberg-games-patrolling/src/stackelberg_games/patrolling/_version.py"
 version.raw-options.root = ".."
 
 [tool.pytest.ini_options]
 cache_dir="../.pytest_cache"
+
+[project.scripts]
+sgp_star_graph="scripts.sgp_star_graph:main"
+sgp_cycle_graph="scripts.sgp_cycle_graph:main"
+uai_gdynia_diagram="scripts.uai_gdynia_diagram:main"
