@@ -5,10 +5,10 @@ This module defines a dataclass that holds information about patrolling setting.
 from __future__ import annotations
 
 from fractions import Fraction
-import pprint
 from typing import Hashable, TypeVar
 
-import networkx
+import geopy.distance  # type: ignore[import-untyped]
+import networkx as nx
 import pydantic
 
 
@@ -25,7 +25,7 @@ class PatrollingEnvironment(pydantic.BaseModel):
 
     units: tuple[Unit, ...]
     """A set of patrolling units."""
-    topology: dict[Unit, networkx.DiGraph]
+    topology: dict[Unit, nx.DiGraph]
     """Arbitrary environment topology."""
     length: dict[Unit, dict[Route, int]]
     """Edge lengths."""
@@ -39,9 +39,9 @@ class PatrollingEnvironment(pydantic.BaseModel):
     model_config = pydantic.ConfigDict(arbitrary_types_allowed=True)
 
     @pydantic.field_serializer('topology')
-    def serialize_topology(self, topology: dict[Unit, networkx.DiGraph]):
-        """Serializer for networkx.Graph."""
-        return {u: networkx.node_link_data(topology[u]) for u in self.units}
+    def serialize_topology(self, topology: dict[Unit, nx.DiGraph]):
+        """Serializer for nx.Graph."""
+        return {u: nx.node_link_data(topology[u]) for u in self.units}
 
 
 def basilico_et_al() -> PatrollingEnvironment:
@@ -55,7 +55,7 @@ def basilico_et_al() -> PatrollingEnvironment:
     modified to a zero-sum setting: we use attacker's target values.
     """
     units = ('_',)
-    topology = {'_': networkx.Graph(['12', '23', '34', '15', '36',
+    topology = {'_': nx.Graph(['12', '23', '34', '15', '36',
                                      '57', '69', '78', '89', '90']).to_directed()}
 
     return PatrollingEnvironment(
@@ -92,7 +92,7 @@ def john_et_al(vertices: int = 12, self_loops: bool = False) -> PatrollingEnviro
          [6, 4, 6, 6, 3, 3, 6, 4, 5, 3, 2, 1]]
 
     units = (0,)
-    topology = {0: networkx.complete_graph(vertices).to_directed()}
+    topology = {0: nx.complete_graph(vertices).to_directed()}
     if self_loops:
         for i in range(vertices):
             topology[0].add_edge(i, i)
@@ -109,7 +109,7 @@ def john_et_al(vertices: int = 12, self_loops: bool = False) -> PatrollingEnviro
     )
 
 
-def graph_environment(graph: networkx.DiGraph, units: int = 1) -> PatrollingEnvironment:
+def graph_environment(graph: nx.DiGraph, units: int = 1) -> PatrollingEnvironment:
     """
     Creates a patrolling environment over 'graph' with 'units' units. Edge lengths and rewards
     are set to 1. Coverage is equal to patrol position.
@@ -135,20 +135,114 @@ def graph_environment(graph: networkx.DiGraph, units: int = 1) -> PatrollingEnvi
     )
 
 
-def main():
-    """Used for prototyping."""
+def gdynia_graph(edge_len_unit: int = 1000) -> nx.DiGraph[str]:
+    """
+    The running example topology from the UAI-24 paper.
+    """
 
-    pp = pprint.PrettyPrinter(indent=2, compact=True)
+    g: nx.Graph[str] = nx.Graph()
+    g.add_nodes_from(
+        [
+            (
+                "Aw_in1",
+                {"pos": (54.538890756145584, 18.56115149288245)},
+            ),  # Awanport --- wejście 1
+            (
+                "Aw_in2",
+                {"pos": (54.536077259063106, 18.561323154247752)},
+            ),  # Awanport --- wejście 2
+            (
+                "B_x_xi",
+                {"pos": (54.538890756145584, 18.554456699635608)},
+            ),  # Baseny X oraz XI
+            (
+                "Aw_out",
+                {"pos": (54.53533768302353, 18.547958199361737)},
+            ),  # # Awanport --- wyjście
+            ("B_ix", {"pos": (54.53638344920011, 18.54087716804296)}),  # Basen IX
+            ("B_viii", {"pos": (54.54076099379705, 18.52120498589296)}),  # Basen VIII
+            ("B_vii", {"pos": (54.539441473596035, 18.521333731916936)}),  # Basen VII
+            ("B_vi", {"pos": (54.53778578884019, 18.527642287091847)}),  # Basen VI
+            ("B_v", {"pos": (54.536204733934866, 18.533736265560126)}),  # Basen V
+            ("B_iv", {"pos": (54.53390518408724, 18.540637593293866)}),  # Basen IV
+        ]
+    )
+    g.add_edge("Aw_in1", "Aw_in2")
+    g.add_edge("B_x_xi", "Aw_in1")
+    g.add_edge("B_x_xi", "Aw_in2")
+    g.add_edge("Aw_out", "Aw_in1")
+    g.add_edge("Aw_out", "Aw_in2")
+    g.add_edge("Aw_out", "B_x_xi")
+    g.add_edge("B_ix", "Aw_out")
+    g.add_edge("B_iv", "Aw_out")
+    g.add_edge("B_iv", "B_ix")
+    g.add_edge("B_v", "B_ix")
+    g.add_edge("B_v", "B_iv")
+    g.add_edge("B_vi", "B_v")
+    g.add_edge("B_vii", "B_vi")
+    g.add_edge("B_viii", "B_vi")
+    g.add_edge("B_viii", "B_vii")
 
-    model = basilico_et_al()
-    pp.pprint(model.model_dump())
+    # Setting length of the edges in meters and in abstract units
+    def dist(e: tuple[str, str]) -> float:
+        return geopy.distance.geodesic(g.nodes[e[0]]["pos"], g.nodes[e[1]]["pos"]).m
 
-    model = john_et_al()
-    pp.pprint(model.model_dump())
+    # noinspection PyTypeChecker
+    nx.set_edge_attributes(
+        g,
+        {e: max(1, round(dist(e) / edge_len_unit)) for e in g.edges},
+        "len",
+    )
 
-    model = graph_environment(networkx.ladder_graph(4), 1)
-    pp.pprint(model.model_dump())
+    nx.set_edge_attributes(
+        g,
+        {e: int(dist(e)) for e in g.edges},
+        "dist",
+    )
+
+    return g.to_directed()
 
 
-if __name__ == '__main__':
-    main()
+def port_gdynia(number_of_units: int = 1) -> PatrollingEnvironment:
+    """
+    The running example setting from the UAI-24 paper.
+    """
+    layout = gdynia_graph()
+
+    units = tuple(range(number_of_units))
+    topology = {
+        unit: layout for unit in units
+    }
+    length = {
+        unit: {e: layout.edges[e]["len"] for e in layout.edges}
+        for unit in units
+    }
+    targets = {
+        v for v in layout if v.startswith("B")
+    }  # The docks are the targets
+
+    coverage = {
+        u: {
+            v: {
+                w:
+                    1
+                    if v == w  # Coverage when exactly at the node
+                    else Fraction(1, 2)
+                    if w in topology[u].neighbors(v)  # Coverage when at a neighbor
+                    else 0
+                for w in topology[u]
+            }  # Coverage when in other nodes
+            for v in topology[u]
+        }
+        for u in units
+    }
+    reward = {t: 1 for t in targets}
+
+    return PatrollingEnvironment(
+        units=units,
+        topology=topology,
+        length=length,
+        targets=targets,
+        coverage=coverage,
+        reward=reward,
+    )

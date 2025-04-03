@@ -3,6 +3,9 @@ import pandas
 import seaborn
 import matplotlib.pyplot as plt
 
+import stackelberg_games.patrolling as sgp
+
+
 def load_result(file_path: str) -> pandas.DataFrame:
     file = open(file_path, 'r')
     header = file.readline().split(';')
@@ -10,7 +13,7 @@ def load_result(file_path: str) -> pandas.DataFrame:
     df['network_type'] = header[0].strip()
     return df
     
-plots_dir_path = 'output/plots/'
+plots_dir_path = sgp.directories.plots_dir
 os.makedirs(plots_dir_path, exist_ok=True)
 
 """

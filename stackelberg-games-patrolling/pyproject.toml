@@ -15,7 +15,7 @@ dynamic = ["version"]
 requires-python = ">=3.10"
 # https://pypi.org/classifiers/
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Operating System :: OS Independent",
     "Environment :: Console",
     "Intended Audience :: Science/Research",
@@ -25,12 +25,14 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Typing :: Typed",
 ]
 
 dependencies = [
-    "autodoc_pydantic",
+    "appdirs",
     "cartopy",
     "datamodel-code-generator",
     "geopy",
@@ -42,12 +44,12 @@ dependencies = [
     "owslib",
     "pandas",
     "pydantic",
-    "pylint",
     "pyscipopt",
     "scipy",
     "seaborn",
     "shapely",
-    "termcolor"
+    "termcolor",
+    "types-networkx"
 ]
 
 
@@ -60,6 +62,7 @@ test = [
 dev = [
     "jinja2",
     "pre-commit",
+    "pylint",
     "pytest",
     "pytest-cov"
 ]
@@ -71,9 +74,16 @@ Homepage = "https://github.com/anagorko/stackelberg-games"
 [tool.hatch]
 version.source = "vcs"
 build.hooks.vcs.version-file = "src/stackelberg_games/patrolling/_version.py"
-build.targets.wheel.packages = ["src/stackelberg_games"]
+build.targets.wheel.packages = ["src/stackelberg_games", "scripts"]
 version.raw-options.write_to = "stackelberg-games-patrolling/src/stackelberg_games/patrolling/_version.py"
 version.raw-options.root = ".."
 
 [tool.pytest.ini_options]
 cache_dir="../.pytest_cache"
+
+[project.scripts]
+sgp_star_graph="scripts.sgp_star_graph:main"
+sgp_animate_schedules="scripts.sgp_animate_schedules:main"
+sgp_compute_schedules="scripts.sgp_compute_schedules:main"
+sgp_cycle_graph="scripts.sgp_cycle_graph:main"
+uai_gdynia_diagram="scripts.uai_gdynia_diagram:main"

@@ -15,20 +15,16 @@ import random
 import pandas
 import seaborn
 
-import plan
-import problem
-import setting
-import space
-import bisect_solver
+import stackelberg_games.patrolling as sgp
 
 
 def run_series(graph_name: str, graph_generator: Callable[[],networkx.DiGraph]):
     
-    solver = bisect_solver.BisectSolver(precision=10**-3, verbose=False)
+    solver = sgp.BisectSolver(precision=10**-3, verbose=False)
     rollout_len = 10**3
     rollouts_num = 10**3
     
-    out_dir_path = 'output/random_results/'
+    out_dir_path = f"{sgp.directories.results_dir}/random_results/"
     os.makedirs(out_dir_path, exist_ok=True)
     with open(f'{out_dir_path}{graph_name}_{round(datetime.datetime.timestamp(datetime.datetime.now()))}.csv', 'w', encoding='utf-8', newline='') as outputFile:
         out = csv.writer(outputFile, delimiter=';')
@@ -41,11 +37,11 @@ def run_series(graph_name: str, graph_generator: Callable[[],networkx.DiGraph]):
         output_row(['graph_size', 'attack_time', 'observation', 'stat', 'value'])
         for n in range(3, 11):
             g = graph_generator(n)
-            environment = setting.graph_environment(g, units=1)
+            environment = sgp.graph_environment(g, units=1)
             for attack_time in range(2, 4):
                 tau = { v : attack_time for v in g }
                 for observation in range(0, 3):
-                    data = problem.patrolling_problem(environment, observation, tau)
+                    data = sgp.patrolling_problem(environment, observation, tau)
                     start_time = time.time()
                     solution = solver.solve(data)
                     end_time = time.time()

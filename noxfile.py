@@ -39,8 +39,9 @@ def docs(session: nox.Session) -> None:
 
     extra_installs = ["sphinx-autobuild"] if args.serve else []
 
-    session.install("-r", "requirements.txt", "-r", "requirements-docs.txt")
-    # session.install("-C", "build-dir=", "-C", "editable.rebuild=false", ".[docs]")
+    session.install("-r", "requirements-docs.txt")
+    session.install("-e", "stackelberg-games-core/")
+    session.install("-e", "stackelberg-games-patrolling/")
     if extra_installs:
         session.install(*extra_installs)
     session.chdir("docs")
