@@ -1,9 +1,13 @@
 from .bisect_solver import BisectSolver
 from . import directories
+from .mts import MapTileService
 from .problem import PatrollingProblem, patrolling_problem
+from .problem_instances import gdynia_problem
 from .pwl import PWLMap
-from .setting import PatrollingEnvironment, basilico_et_al, gdynia_graph, graph_environment, john_et_al, port_gdynia
+from .schedule import Schedule
+from .setting import PatrollingEnvironment, Rational, basilico_et_al, gdynia_graph, graph_environment, john_et_al, port_gdynia
 from .space import ConcreteSpace, PathSpace, PatrollingSpace, TensorProductSpace, WeightedGraphSpace
+
 
 __all__ = [
     "BisectSolver",
@@ -13,6 +17,7 @@ __all__ = [
     "PatrollingProblem",
     "PatrollingSpace",
     "PWLMap",
+    "Rational",
     "TensorProductSpace",
     "WeightedGraphSpace",
     "basilico_et_al",

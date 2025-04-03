@@ -18,7 +18,7 @@ from urllib.request import urlopen, Request
 from PIL import Image
 from tqdm import tqdm
 
-import directories
+from . import directories
 
 
 class MapTileService:
