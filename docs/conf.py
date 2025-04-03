@@ -5,11 +5,6 @@ import os
 import sys
 from pathlib import Path
 
-import griffe
-from griffe.docstrings import dataclasses as ds
-from griffe.docstrings import parsers, styles
-from griffe.extensions import sphinx as griffe_sphinx
-
 sys.path.insert(0, os.path.abspath("../stackelberg-games-patrolling/src"))
 sys.path.insert(0, os.path.abspath("../stackelberg-games-core/src"))
 sys.path.append(str(Path(".").resolve()))
