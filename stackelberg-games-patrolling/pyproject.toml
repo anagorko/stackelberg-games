@@ -82,8 +82,8 @@ version.raw-options.root = ".."
 cache_dir="../.pytest_cache"
 
 [project.scripts]
-sgp_star_graph="scripts.sgp_star_graph:main"
-sgp_animate_schedules="scripts.sgp_animate_schedules:main"
-sgp_compute_schedules="scripts.sgp_compute_schedules:main"
-sgp_cycle_graph="scripts.sgp_cycle_graph:main"
-uai_gdynia_diagram="scripts.uai_gdynia_diagram:main"
+sgp_star_graph="stackelberg_games.patrolling.scripts.sgp_star_graph:main"
+sgp_animate_schedules="stackelberg_games.patrolling.scripts.sgp_animate_schedules:main"
+sgp_compute_schedules="stackelberg_games.patrolling.scripts.sgp_compute_schedules:main"
+sgp_cycle_graph="stackelberg_games.patrolling.scripts.sgp_cycle_graph:main"
+uai_gdynia_diagram="stackelberg_games.patrolling.scripts.uai_gdynia_diagram:main"
