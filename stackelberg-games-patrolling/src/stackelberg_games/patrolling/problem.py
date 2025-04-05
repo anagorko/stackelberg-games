@@ -8,6 +8,7 @@ import string
 import networkx
 import numpy
 import pydantic
+import shapely.geometry.base
 
 from .space import State, PatrollingSpace, WeightedGraphSpace, ConcreteSpace, TensorProductSpace, PathSpace, StateActionSpace
 from .setting import Rational, PatrollingEnvironment, Target
@@ -74,6 +75,7 @@ def patrolling_problem(environment: PatrollingEnvironment, observation_length: i
         strategy=strategy,
         projection=projection,
         targets=environment.targets,
+        target_geometry=environment.target_geometry,
         tau={t: tau[t] for t in environment.targets},
         reward=environment.reward,
         observation_length=observation_length
@@ -97,6 +99,9 @@ class PatrollingProblem(pydantic.BaseModel):
 
     targets: set[Target]
     """Set of targets."""
+
+    target_geometry: dict[Target, shapely.geometry.base.BaseGeometry] | None = pydantic.Field(default=None)
+    """Target geometries for visualization (optional)."""
 
     tau: dict[Target, int]
     """Attack times."""

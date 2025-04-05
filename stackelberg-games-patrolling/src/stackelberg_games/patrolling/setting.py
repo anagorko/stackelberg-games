@@ -10,6 +10,7 @@ from typing import Hashable, TypeVar
 import geopy.distance  # type: ignore[import-untyped]
 import networkx as nx
 import pydantic
+import shapely.geometry.base
 
 
 Rational = int | Fraction
@@ -31,6 +32,8 @@ class PatrollingEnvironment(pydantic.BaseModel):
     """Edge lengths."""
     targets: set[Target]
     """A set of targets."""
+    target_geometry: dict[Target, shapely.geometry.base.BaseGeometry] | None = pydantic.Field(default=None)
+    """Target geometries for visualization (optional)."""
     coverage: dict[Unit, Coverage]
     """For each unit, protection coverage of each target from each location."""
     reward: dict[Target, Rational]
@@ -56,7 +59,7 @@ def basilico_et_al() -> PatrollingEnvironment:
     """
     units = ('_',)
     topology = {'_': nx.Graph(['12', '23', '34', '15', '36',
-                                     '57', '69', '78', '89', '90']).to_directed()}
+                               '57', '69', '78', '89', '90']).to_directed()}
 
     return PatrollingEnvironment(
         units=units,

@@ -184,6 +184,9 @@ class ScheduleAnimation(manim.MovingCameraScene):
                             (point_y - center_y) / manim.config.pixel_height * -8, 0])
 
     def set_background(self):
+        print("self.bounds", self.bounds)
+        print("self.center", self.center)
+
         background_map = self.mts.get_map(self.center[0], self.center[1], self.zoom_level,
                                           manim.config.pixel_width, manim.config.pixel_height)
 
@@ -203,7 +206,8 @@ class ScheduleAnimation(manim.MovingCameraScene):
         for node in self.rollout.data.targets:
             targets[node] = manim.Circle(fill_color=defaults['unprotected_fill'], radius=0.13, fill_opacity=0.8,
                                          color=manim.DARK_GRAY)
-            targets[node].move_to(self.transform(self.positions[node]))
+            target_position = self.rollout.data.target_geometry[node]
+            targets[node].move_to(self.transform(target_position))
             targets[node].node_id = node
         target_creation = manim.Create(manim.VGroup(*targets.values()), run_time=1.0)
 
