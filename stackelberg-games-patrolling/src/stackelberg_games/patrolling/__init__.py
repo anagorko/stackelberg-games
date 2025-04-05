@@ -1,3 +1,5 @@
+from .animate import Animation, AnimationGroup, ScheduleAnimation
+from .animate import defaults as animate_defaults
 from .bisect_solver import BisectSolver
 from . import directories
 from .mts import MapTileService
