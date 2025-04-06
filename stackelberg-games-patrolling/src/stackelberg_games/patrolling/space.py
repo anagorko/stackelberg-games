@@ -3,6 +3,7 @@ This module implements dataclasses that represent state and action spaces.
 """
 
 import abc
+from fractions import Fraction
 import functools
 import itertools
 import random
@@ -85,15 +86,21 @@ class WeightedGraphSpace(StateActionSpace):
         assert (all(isinstance(v, int) for v in self.d.values()))
 
         target = {}
+        pos = {}
         for u, v in self.d:
             if self.d[u, v] > 1:
                 nn = new_nodes(unrolled, self.d[u, v] - 1)
-                for w in nn:
+                for i, w in enumerate(nn):
                     target[w] = v
+                    t = Fraction(i+1, len(nn) + 1)
+                    v_pos = self.graph.nodes[v]["pos"]
+                    u_pos = self.graph.nodes[u]["pos"]
+                    pos[w] = [t * v_pos[0] + (1-t) * u_pos[0], t * v_pos[1] + (1-t) * u_pos[1]]
                 path = [u] + nn + [v]
                 unrolled.add_edges_from(list(zip(path, path[1:])))
                 unrolled.remove_edge(u, v)
         networkx.set_node_attributes(unrolled, target, 'target')
+        networkx.set_node_attributes(unrolled, pos, 'pos')
         return unrolled
 
 
@@ -266,7 +273,7 @@ class PatrollingSpace(TensorProductSpace):
         """
         This is a map that assigns to product states maps from targets to protection probabilities.
         """
-        null_coverage = {t: 0.0 for t in self.targets}
+        null_coverage = {t: 0 for t in self.targets}
 
         c = {}
         for v in self.topology:

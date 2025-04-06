@@ -106,7 +106,7 @@ def john_et_al(vertices: int = 12, self_loops: bool = False) -> PatrollingEnviro
         topology=topology,
         length={u: {(u, v): d[u][v] for u, v in topology[u].edges} for u in units},
         targets=targets,
-        coverage={u: {v: {w: 1 if v == w else 0.0 for w in topology[u]} for v in topology[u]}
+        coverage={u: {v: {w: 1 if v == w else 0 for w in topology[u]} for v in topology[u]}
                   for u in units},
         reward={t: 1 for t in targets}
     )
